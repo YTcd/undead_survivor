@@ -3,19 +3,19 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
-    public GameObject[] enemyPrefab = new GameObject[5];
+    public GameObject[] Prefabs = new GameObject[5];
     List<GameObject>[] pool;
     
     void Awake()
     {
-        pool = new List<GameObject>[enemyPrefab.Length];
+        pool = new List<GameObject>[Prefabs.Length];
         for (int i = 0; i < pool.Length; i++)
         {
             pool[i] = new List<GameObject>();
         }
     }
 
-    public GameObject GetEnemy(int index)
+    public GameObject Get(int index)
     {
         GameObject select = null;
 
@@ -31,7 +31,7 @@ public class PoolManager : MonoBehaviour
 
         if (select == null && pool[index].Count < 10)
         {
-            select = Instantiate(enemyPrefab[index], transform);
+            select = Instantiate(Prefabs[index], transform);
             pool[index].Add(select);
         }
 

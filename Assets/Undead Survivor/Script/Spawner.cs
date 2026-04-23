@@ -28,7 +28,7 @@ public class Spawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        GameObject Enemy = GameManager.instance.pool.GetEnemy(0);
+        GameObject Enemy = GameManager.instance.pool.Get(0);
         if (Enemy == null)
         {
             return;
