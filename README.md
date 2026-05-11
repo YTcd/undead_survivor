@@ -13,7 +13,7 @@
 
 ---
 ## Unity
-
+- Header
 - InputSystem
 - Instantiate
 - System.Serializable class
@@ -24,3 +24,10 @@
     - FromToRotation
 - Physics2D.CircleCastAll
 - RaycastHit2D
+- Animator
+    - SetTrigger
+    - GetCurrentAnimatorStateInfo
+- ForceMode2D
+- StartCoroutine
+- RigidBody
+    - simulated
