@@ -9,7 +9,15 @@ public class Weapon : MonoBehaviour
     public int count;
     public float speed;
 
+    public float timer = 0f;
+    Player player;
+
     private InputAction jumpAction;
+
+    void Awake()
+    {
+        player = GetComponentInParent<Player>();
+    }
 
     void Start()
     {
@@ -24,6 +32,14 @@ public class Weapon : MonoBehaviour
             case 0:
                 rotateWeapons(id);
                 break;
+            case 1:
+                timer += Time.deltaTime;
+                if (timer > speed)
+                {
+                    timer = 0;
+                    Fire();
+                }
+                break;
             default:
                 break;
         }
@@ -36,7 +52,7 @@ public class Weapon : MonoBehaviour
 
     public void LevelUp(float damage, int count)
     {
-        this.damage = damage;
+        this.damage += damage;
         this.count += count;
         
         if(id == 0)
@@ -50,9 +66,12 @@ public class Weapon : MonoBehaviour
         switch(id)
         {
             case 0:
-                speed = -150;
+                speed = 150;
                 setPosition();
                 break;
+            case 1:
+                speed = 0.3f;
+                break; 
             default:
                 break;
         }
@@ -83,7 +102,24 @@ public class Weapon : MonoBehaviour
             Vector3 rotVec = Vector3.forward * 360 * i / count;
             bullet.Rotate(rotVec);
             bullet.Translate(bullet.up * 1.5f, Space.World);
-            bullet.GetComponent<Bullet>().Init(damage, -1); // -1 is Infinity Per.
+            bullet.GetComponent<Bullet>().Init(damage, -1, Vector3.zero); // -1 is Infinity Per.
         }
+    }
+
+    void Fire()
+    {
+        if (!player.scanner.nearestTarget)
+        {
+            return;
+        }
+
+        Vector3 targetPos = player.scanner.nearestTarget.position;
+        Vector3 dir = targetPos - transform.position;
+        dir = dir.normalized;
+
+        Transform bullet = GameManager.instance.pool.Get(prefabId).transform;
+        bullet.position = transform.position;
+        bullet.rotation = Quaternion.FromToRotation(Vector3.up, dir);
+        bullet.GetComponent<Bullet>().Init(damage, count, dir);
     }
 }

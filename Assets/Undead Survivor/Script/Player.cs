@@ -6,8 +6,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float m_speed = 3.0f;
     public Vector2 inputVec;
-    [SerializeField]
     public InputAction moveAction;
+    public Scanner scanner;
 
     private GameObject m_player;
     private Rigidbody2D rigid;
@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        scanner = GetComponent<Scanner>();
     }
 
     void Start()

@@ -4,10 +4,51 @@ public class Bullet : MonoBehaviour
 {
     public float damage;
     public int per;
+    
+    Rigidbody2D rigid;
+    Player player;
 
-    public void Init(float damage, int per)
+    void Awake()
+    {
+        rigid = GetComponent<Rigidbody2D>();
+        player = GameManager.instance.m_player;
+    }
+
+    public void Init(float damage, int per, Vector3 dir)
     {
         this.damage = damage;
         this.per = per;
+
+        if (per > -1)
+        {
+            rigid.linearVelocity = dir * 15f;
+        }
+    }
+
+    void Update()
+    {
+        Vector3 currentPos = transform.position;
+        Vector3 playerPos = player.transform.position;
+        if (Vector3.Distance(currentPos, playerPos) > 20f)
+        {
+            rigid.linearVelocity = Vector2.zero;
+            gameObject.SetActive(false);
+        }   
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Enemy") || per == -1)
+        {
+            return;
+        }
+
+        per--;
+
+        if (per <= -1)
+        {
+            rigid.linearVelocity = Vector2.zero;
+            gameObject.SetActive(false);
+        }
     }
 }

@@ -21,3 +21,6 @@
 - runtimeAnimatorController
 - linearVelocity
 - Quaternion
+    - FromToRotation
+- Physics2D.CircleCastAll
+- RaycastHit2D
