@@ -8,8 +8,11 @@ public class GameManager : MonoBehaviour
     public PoolManager pool;
     public float gameTime;
     public float EASY_MODE = 2 * 5f;
+    public float maxGameTime = 60 * 5;
 
     [Header("# Player Info")]
+    public int health;
+    public int maxHealth = 100;
     public int level;
     public int kill;
     public int exp = 0;
@@ -18,6 +21,11 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+    }
+
+    void Start()
+    {
+        health = maxHealth;
     }
 
     void Update()
