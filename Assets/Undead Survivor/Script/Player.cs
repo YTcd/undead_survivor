@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public Vector2 inputVec;
     public InputAction moveAction;
     public Scanner scanner;
+    public Hand[] hands; // [left, right]
 
     private Rigidbody2D rigid;
     private SpriteRenderer spriter;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
         spriter = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         scanner = GetComponent<Scanner>();
+        hands = GetComponentsInChildren<Hand>(true);
     }
 
     void Start()
