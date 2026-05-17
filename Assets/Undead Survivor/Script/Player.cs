@@ -3,17 +3,15 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    private float m_speed = 3.0f;
+    public float m_speed = 3.0f;
     public Vector2 inputVec;
     public InputAction moveAction;
     public Scanner scanner;
 
-    private GameObject m_player;
     private Rigidbody2D rigid;
     private SpriteRenderer spriter;
     private Animator animator;
-    
+
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -25,7 +23,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
-        m_player = GetComponent<GameObject>();
     }
 
     // Update is called once per frame
@@ -41,7 +38,7 @@ public class Player : MonoBehaviour
 
         // 2. 속도 제어
         // rigid.linearVelocity = inputVec;
-        
+
         // 3. 위치 이동
         Vector2 nextVec = inputVec.normalized * m_speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
@@ -57,6 +54,6 @@ public class Player : MonoBehaviour
         {
             spriter.flipX = inputVec.x < 0;
         }
-        
+
     }
 }

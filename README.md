@@ -10,6 +10,9 @@
 ## C#
 - List
 - 배열
+- Enum
+- string
+    - Format
 
 ---
 ## Unity
@@ -31,5 +34,4 @@
 - StartCoroutine
 - RigidBody
     - simulated
-- string
-    - Format
+- CreateAssetMenu

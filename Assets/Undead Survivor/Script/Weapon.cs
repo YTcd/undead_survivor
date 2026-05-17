@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,18 +17,17 @@ public class Weapon : MonoBehaviour
 
     void Awake()
     {
-        player = GetComponentInParent<Player>();
+        player = GameManager.instance.m_player;
     }
 
     void Start()
     {
         jumpAction = InputSystem.actions.FindAction("Jump");
-        Init();
     }
 
     void Update()
     {
-        switch(id)
+        switch (id)
         {
             case 0:
                 rotateWeapons(id);
@@ -54,27 +54,50 @@ public class Weapon : MonoBehaviour
     {
         this.damage += damage;
         this.count += count;
-        
-        if(id == 0)
+
+        if (id == 0)
         {
             setPosition();
         }
+
+        player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 
-    public void Init()
+    public void Init(ItemData data)
     {
-        switch(id)
+        // Bacic set
+        name = "Weapon " + data.itemId;
+        transform.parent = player.transform;
+        transform.localPosition = Vector3.zero;
+
+        // Property Set
+        id = data.itemId;
+        damage = data.baseDamage;
+        count = data.baseCount;
+
+        for (int i = 0; i < GameManager.instance.pool.Prefabs.Length; i++)
+        {
+            if (data.projectile == GameManager.instance.pool.Prefabs[i])
+            {
+                prefabId = i;
+                break;
+            }
+        }
+
+        switch (id)
         {
             case 0:
                 speed = 150;
                 setPosition();
                 break;
             case 1:
-                speed = 0.3f;
-                break; 
+                speed = 0.4f;
+                break;
             default:
                 break;
         }
+
+        player.BroadcastMessage("ApplyGear");
     }
 
     private void rotateWeapons(int id)
@@ -90,9 +113,10 @@ public class Weapon : MonoBehaviour
             if (i < transform.childCount)
             {
                 bullet = transform.GetChild(i);
-            } else
+            }
+            else
             {
-                bullet = GameManager.instance.pool.Get(prefabId).transform;    
+                bullet = GameManager.instance.pool.Get(prefabId).transform;
             }
             bullet.parent = transform;
 

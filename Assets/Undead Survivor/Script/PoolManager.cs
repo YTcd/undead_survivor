@@ -5,7 +5,7 @@ public class PoolManager : MonoBehaviour
 {
     public GameObject[] Prefabs = new GameObject[5];
     List<GameObject>[] pool;
-    
+
     void Awake()
     {
         pool = new List<GameObject>[Prefabs.Length];
@@ -19,7 +19,7 @@ public class PoolManager : MonoBehaviour
     {
         GameObject select = null;
 
-        foreach(GameObject item in pool[index])
+        foreach (GameObject item in pool[index])
         {
             if (item.activeSelf == false)
             {
@@ -29,7 +29,7 @@ public class PoolManager : MonoBehaviour
             }
         }
 
-        if (select == null && pool[index].Count < 10)
+        if (select == null && pool[index].Count < 100)
         {
             select = Instantiate(Prefabs[index], transform);
             pool[index].Add(select);
