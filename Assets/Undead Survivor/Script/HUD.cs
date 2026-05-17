@@ -22,7 +22,7 @@ public class HUD : MonoBehaviour
         {
             case InfoType.Exp:
                 float curExp = inst.exp;
-                float maxExp = inst.nexExp[inst.level];
+                float maxExp = inst.nexExp[Mathf.Min(inst.level, inst.nexExp.Length - 1)];
                 mySlider.value = curExp / maxExp;
                 break;
             case InfoType.Health:

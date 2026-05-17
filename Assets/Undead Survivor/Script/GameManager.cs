@@ -1,14 +1,17 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [Header("# Game Control")]
+    public bool isLive;
     public Player m_player;
     public PoolManager pool;
     public float gameTime;
     public float EASY_MODE = 2 * 5f;
     public float maxGameTime = 60 * 5;
+    public LevelUp uiLevelUp;
 
     [Header("# Player Info")]
     public int health;
@@ -26,10 +29,16 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         health = maxHealth;
+
+        uiLevelUp.Select(0);
     }
 
     void Update()
     {
+        if (!isLive)
+        {
+            return;
+        }
         gameTime += Time.deltaTime;
     }
 
@@ -37,10 +46,23 @@ public class GameManager : MonoBehaviour
     {
         exp++;
 
-        if (exp >= nexExp[level])
+        if (exp >= nexExp[Mathf.Min(level, nexExp.Length - 1)])
         {
             level++;
             exp = 0;
+            uiLevelUp.Show();
         }
+    }
+
+    public void StopGame()
+    {
+        isLive = false;
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame()
+    {
+        isLive = true;
+        Time.timeScale = 1;
     }
 }

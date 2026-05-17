@@ -30,11 +30,19 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.instance.isLive)
+        {
+            return;
+        }
         inputVec = moveAction.ReadValue<Vector2>();
     }
 
     void FixedUpdate()
     {
+        if (!GameManager.instance.isLive)
+        {
+            return;
+        }
         // 1. 힘을 주기
         // rigid.AddForce(inputVec);
 
@@ -49,6 +57,10 @@ public class Player : MonoBehaviour
 
     void LateUpdate()
     {
+        if (!GameManager.instance.isLive)
+        {
+            return;
+        }
 
         animator.SetFloat("Speed", inputVec.magnitude);
 

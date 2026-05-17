@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isLive || animator.GetCurrentAnimatorStateInfo(0).IsName("Hit"))
+        if (!isLive || animator.GetCurrentAnimatorStateInfo(0).IsName("Hit") || !GameManager.instance.isLive)
         {
             return;
         }
@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
 
     void LateUpdate()
     {
-        if (!isLive)
+        if (!isLive || !GameManager.instance.isLive)
         {
             return;
         }
