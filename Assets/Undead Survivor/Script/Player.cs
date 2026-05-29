@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public InputAction moveAction;
     public Scanner scanner;
     public Hand[] hands; // [left, right]
+    public RuntimeAnimatorController[] animatorControllers;
 
     private Rigidbody2D rigid;
     private SpriteRenderer spriter;
@@ -21,6 +22,12 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         scanner = GetComponent<Scanner>();
         hands = GetComponentsInChildren<Hand>(true);
+    }
+
+    void OnEnable()
+    {
+        m_speed *= Character.Speed;
+        animator.runtimeAnimatorController = animatorControllers[GameManager.instance.playerId];
     }
 
     void Start()

@@ -9,6 +9,7 @@
 
 ## CS
 - 캐시 미스
+- Heap/Stack
 
 ## C#
 - LINQ
