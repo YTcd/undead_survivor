@@ -4,7 +4,7 @@ public class Bullet : MonoBehaviour
 {
     public float damage;
     public int per;
-    
+
     Rigidbody2D rigid;
     Player player;
 
@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
         {
             rigid.linearVelocity = Vector2.zero;
             gameObject.SetActive(false);
-        }   
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)

@@ -7,8 +7,12 @@
 
 ## 📝 작업중 공부 ([벨로그](https://velog.io/@lovemytae/posts))
 
+## CS
+- 캐시 미스
+
 ## C#
-- List
+- LINQ
+- [List](https://velog.io/@lovemytae/List)
 - 배열
 - Enum
 - string

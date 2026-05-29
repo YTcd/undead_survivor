@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -69,5 +70,26 @@ public class Player : MonoBehaviour
             spriter.flipX = inputVec.x < 0;
         }
 
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (GameManager.instance.isLive == false)
+        {
+            return;
+        }
+
+        GameManager.instance.health -= Time.deltaTime * 10;
+
+        if (GameManager.instance.health < 0)
+        {
+            for (int i = 2; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
+
+            animator.SetTrigger("Dead");
+            GameManager.instance.GameOver();
+        }
     }
 }
