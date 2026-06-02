@@ -12,10 +12,9 @@
 - Heap/Stack
 
 ## C#
-- LINQ
 - [List](https://velog.io/@lovemytae/List)
 - 배열
-- Enum
+- [Enum](https://velog.io/@lovemytae/Enum)
 - string
     - Format
 
