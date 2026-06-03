@@ -89,6 +89,7 @@ public class Enemy : MonoBehaviour
         if (health > 0)
         {
             animator.SetTrigger("Hit");
+            AudioManager.instance.PlaySfx(AudioManager.Sfx.Hit);
         }
         else
         {
@@ -99,6 +100,10 @@ public class Enemy : MonoBehaviour
             animator.SetBool("Dead", true);
             GameManager.instance.kill++;
             GameManager.instance.GetExp();
+            if (GameManager.instance.isLive == true)
+            {
+                AudioManager.instance.PlaySfx(AudioManager.Sfx.Dead);
+            }
         }
     }
 
@@ -112,6 +117,7 @@ public class Enemy : MonoBehaviour
         rigid.AddForce(dirVec.normalized * 3f, ForceMode2D.Impulse);
     }
 
+    // Called by Animation Event at the end of Dead animation clip
     void Dead()
     {
         isLive = false;
