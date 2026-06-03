@@ -1,5 +1,8 @@
 # Undead Survivor — CLAUDE.md
 
+## Main harness
+항상 한글로 대답해
+
 ## 프로젝트 개요
 
 뱀파이어 서바이버 라이크 2D 액션 게임. Unity 6으로 개발 중인 초기 프로토타입.

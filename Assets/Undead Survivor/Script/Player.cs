@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public Scanner scanner;
     public Hand[] hands; // [left, right]
     public RuntimeAnimatorController[] animatorControllers;
+    public FloatingJoystick joystick;
 
     private Rigidbody2D rigid;
     private SpriteRenderer spriter;
@@ -42,7 +43,10 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        inputVec = moveAction.ReadValue<Vector2>();
+        // inputVec = moveAction.ReadValue<Vector2>();
+        inputVec = joystick != null && joystick.gameObject.activeInHierarchy
+        ? joystick.Direction
+        : moveAction.ReadValue<Vector2>();
     }
 
     void FixedUpdate()
