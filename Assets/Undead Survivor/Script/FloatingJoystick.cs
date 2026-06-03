@@ -11,11 +11,17 @@ public class FloatingJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     private RectTransform m_rectTransform;
     private Vector2 m_origin;
+    private CanvasGroup m_bgGroup;
 
     void Awake()
     {
         m_rectTransform = GetComponent<RectTransform>();
-        m_bg.gameObject.SetActive(false);
+        m_bgGroup = m_bg.GetComponent<CanvasGroup>();
+        if (m_bgGroup == null)
+            m_bgGroup = m_bg.gameObject.AddComponent<CanvasGroup>();
+
+        m_bgGroup.alpha = 0;
+        m_bgGroup.blocksRaycasts = false;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -25,7 +31,7 @@ public class FloatingJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler
 
         m_bg.anchoredPosition = localPos;
         m_knob.anchoredPosition = Vector2.zero;
-        m_bg.gameObject.SetActive(true);
+        m_bgGroup.alpha = 1;
         m_origin = eventData.position;
     }
 
@@ -41,6 +47,6 @@ public class FloatingJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler
     {
         Direction = Vector2.zero;
         m_knob.anchoredPosition = Vector2.zero;
-        m_bg.gameObject.SetActive(false);
+        m_bgGroup.alpha = 0;
     }
 }

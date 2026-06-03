@@ -7288,7 +7288,7 @@ MonoBehaviour:
   - {fileID: 22100000, guid: 00c37d7cfc3991f4aa7dbd857f8b2384, type: 2}
   - {fileID: 22100000, guid: dfb861ef18febc743b09730423796fa2, type: 2}
   - {fileID: 22100000, guid: b9f98a07955a667438529a918fdda3de, type: 2}
-  joystick: {fileID: 0}
+  joystick: {fileID: 666159542}
 --- !u!95 &517036889
 Animator:
   serializedVersion: 7
@@ -8228,9 +8228,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 666159541}
-  - component: {fileID: 666159542}
   - component: {fileID: 666159544}
   - component: {fileID: 666159543}
+  - component: {fileID: 666159545}
+  - component: {fileID: 666159542}
   m_Layer: 0
   m_Name: TouchArea
   m_TagString: Untagged
@@ -8286,7 +8287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.28235295}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8311,6 +8312,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666159540}
   m_CullTransparentMesh: 1
+--- !u!114 &666159545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666159540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3d5c8d7de952c41963557b650a547d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MobileJoystick
 --- !u!1 &666373415
 GameObject:
   m_ObjectHideFlags: 0
@@ -9477,7 +9490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.21176471}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -9716,7 +9729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d677f1681015749b15c436eec6d880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.OnScreen.OnScreenStick
-  m_MovementRange: 30
+  m_MovementRange: 10
   m_DynamicOriginRange: 100
   m_ControlPath: <Gamepad>/leftStick
   m_Behaviour: 0
@@ -9753,7 +9766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
