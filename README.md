@@ -40,3 +40,4 @@
 - RigidBody
     - simulated
 - CreateAssetMenu
+- PlayerPrefs
