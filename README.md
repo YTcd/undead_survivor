@@ -13,10 +13,10 @@
 
 ## C#
 - [List](https://velog.io/@lovemytae/List)
-- 배열
+- [배열](https://velog.io/@lovemytae/Array)
 - [Enum](https://velog.io/@lovemytae/Enum)
 - string
-    - Format
+- Format
 
 ---
 ## Unity
