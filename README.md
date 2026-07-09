@@ -10,6 +10,7 @@
 ## CS
 - 캐시 미스
 - [Stack/Heap](https://velog.io/@lovemytae/StackHeap)
+- [Value/Reference](https://velog.io/@lovemytae/ValueReference)
 
 ## C#
 - [List](https://velog.io/@lovemytae/List)
