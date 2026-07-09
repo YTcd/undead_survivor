@@ -9,7 +9,7 @@
 
 ## CS
 - 캐시 미스
-- Heap/Stack
+- [Stack/Heap](https://velog.io/@lovemytae/StackHeap)
 
 ## C#
 - [List](https://velog.io/@lovemytae/List)
