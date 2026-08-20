@@ -20,7 +20,7 @@
     - [string-1](https://velog.io/@lovemytae/String-1)
     - [string-2](https://velog.io/@lovemytae/String-2)
     - [string-3](https://velog.io/@lovemytae/String-3)
-- Format
+    - [string-4](https://velog.io/@lovemytae/String-4)
 - [Boxing/Unboxing](https://velog.io/@lovemytae/BoxingUnboxing)
 
 ---
