@@ -33,8 +33,7 @@
 - GetComponentsInChildren
 - runtimeAnimatorController
 - linearVelocity
-- Quaternion
-    - FromToRotation
+- [Quaternion](https://velog.io/@lovemytae/Quaternion-Euler-Angle)
 - Physics2D.CircleCastAll
 - RaycastHit2D
 - Animator
