@@ -8,7 +8,7 @@
 ## 📝 작업중 공부 ([벨로그](https://velog.io/@lovemytae/posts))
 
 ## CS
-- [캐시 미스](https://velog.io/@lovemytae/CPU-Cache-Miss-xmnxgdyl)
+- [캐시 미스](https://velog.io/@lovemytae/CPU-Cache-Miss)
 - [Stack/Heap](https://velog.io/@lovemytae/StackHeap)
 - [Value/Reference](https://velog.io/@lovemytae/ValueReference)
 
