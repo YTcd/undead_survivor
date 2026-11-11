@@ -41,7 +41,6 @@
     - GetCurrentAnimatorStateInfo
 - ForceMode2D
 - StartCoroutine
-- RigidBody
-    - simulated
+- [RigidBody](https://velog.io/@lovemytae/Unity-RigidBody)
 - CreateAssetMenu
 - PlayerPrefs
