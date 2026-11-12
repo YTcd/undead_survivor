@@ -29,7 +29,7 @@
 - Header
 - InputSystem
 - [Instantiate](https://velog.io/@lovemytae/Instantiate)
-- System.Serializable class
+- [직렬화](https://velog.io/@lovemytae/%EC%A7%81%EB%A0%AC%ED%99%94%EB%9E%80)
 - GetComponentsInChildren
 - runtimeAnimatorController
 - linearVelocity
